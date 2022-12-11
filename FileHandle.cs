@@ -14,7 +14,6 @@ public class FileHandle
             Id = a;
             Word = b;
         }
-
     }
 
     public static void FileSave(List<string> data)
@@ -30,17 +29,12 @@ public class FileHandle
             Collection.Add(new Lines(numb, data[i]));
             numb++;
         }
-        foreach (Lines a in Collection)
-        {
-            Console.WriteLine($"{a.Id} {a.Word}");
-
-        }
+        
         using (var writer = new StreamWriter("C:\\Users\\Asus\\source\\repos\\SongCards\\Cards\\Song.csv"))
         using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
         {
             csv.WriteRecords(Collection);
         }
-        Console.WriteLine("All done");
 
     }
 }

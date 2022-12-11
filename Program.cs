@@ -35,45 +35,9 @@ while (on)
             string title = Console.ReadLine();
             Console.Write("Give author name:");
             string author = Console.ReadLine();
-            bool s = true;
-            int i = 1;
-            while (s)
-            {
-                var search = client.SearchClient.Search($"per_page=20&page={i}&q=" + title);
-                if (search.Result.Response.Hits.Count() == 0)
-                {
-                    Console.WriteLine("Not found");
-                    s = false;
-                }
-                // Console.WriteLine(search.Result.Response.Hits.Count());
-                var hits = search.Result.Response.Hits;
-                foreach (var item in hits)
-                {
-                    if (item.Result.PrimaryArtist.Name.ToUpper().Contains(author.ToUpper()))
-                    {
-                        Console.WriteLine(item.Result.FullTitle);
-                        Console.WriteLine(item.Result.Id);
-                        Console.WriteLine("Found");
-                        var song = await client.SongClient.GetSong(item.Result.Id);
-
-                        using (WebClient hclient = new WebClient())
-                        {
-                            HtmlWeb hw = new HtmlWeb();
-                            HtmlDocument doc = hw.Load(song.Response.Song.Url);
-                            var divs = doc.DocumentNode.SelectSingleNode("//div[contains(@class,'Lyrics__Container')]");
-                            var node = divs.InnerText;
-                            node = HttpUtility.HtmlDecode(node);
-                            Console.WriteLine(node);
-                            List<string> lista = Dict(node);
-                            FileHandle.FileSave(lista);
-
-                        }
-                        s = false;
-                    }
-                }
-                Console.WriteLine();
-                i += 1;
-            }
+            Lyrics.GetLyric(client, title, author);
+            
+            Console.WriteLine("Words saved to Card");
             break;
         case 2:
             Console.WriteLine("Thanks For Using");
@@ -91,30 +55,6 @@ while (on)
 
 
 
-List<string> Dict(string words)
-{
-    List<string> Result = new List<string>();
-    string temp = "";
-    foreach (char a in words)
-    {
-        if (a != ' ' && a != '[' && a != ']' && Char.IsUpper(a) != true)
-        {
-            temp += a;
-        }
-        else if (Char.IsUpper(a))
-        {
-            Result.Add(temp);
-            temp = "";
-            temp = Convert.ToString(Char.ToLower(a));
-        }
-        else
-        {
-            Result.Add(temp);
-            temp = "";
-        }
-    }
-    return Result;
-}
 
 
 
