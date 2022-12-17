@@ -1,0 +1,11 @@
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\SongCards.exe
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\SongCards.dll
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\SongCards.deps.json
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\SongCards.runtimeconfig.json
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\SongCards.pdb
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\CsvHelper.dll
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\Genius.dll
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\HtmlAgilityPack.dll
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\Jil.dll
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\Sigil.dll
+C:\Users\Asus\Desktop\prace kuby\Programowanie\C#\SongCards\System.Runtime.InteropServices.PInvoke.dll

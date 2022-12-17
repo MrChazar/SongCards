@@ -30,11 +30,10 @@ public class FileHandle
             numb++;
         }
         
-        using (var writer = new StreamWriter("C:\\Users\\Asus\\source\\repos\\SongCards\\Cards\\Song.csv"))
+        using (var writer = new StreamWriter("Cards/Song.csv", append: true))
         using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
         {
             csv.WriteRecords(Collection);
         }
-
     }
 }
